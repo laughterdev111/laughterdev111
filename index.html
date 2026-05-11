@@ -1,10 +1,158 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Profile | LaughterDev</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --card-bg: #161b22;
+            --text-main: #c9d1d9;
+            --text-bright: #ffffff;
+            --accent: #58a6ff;
+            --border: #30363d;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            background-color: var(--card-bg);
+            border-right: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .contact-info {
+            text-align: left;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-item { margin-bottom: 1rem; }
+        .contact-item strong { color: var(--accent); display: block; }
+
+        /* Main Content Styling */
+        .main-content { padding: 3rem; overflow-y: auto; }
+
+        .section-title {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            color: var(--text-bright);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .education-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--accent);
+        }
+
+        /* Responsive for Phones */
+        @media (max-width: 768px) {
+            body { grid-template-columns: 1fr; }
+            .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello, I'm [Your Name]!</h1>
-    <p>Welcome to my first GitHub project.</p>
+
+    <aside class="sidebar">
+        <img src="isaac.jpg" alt="Profile Picture" class="profile-im">
+        <h2>LaughterDev</h2>
+        <p>Software Developer</p>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <strong>Email</strong>
+                <span>[Your-Email-Here]@gmail.com.com</span>
+            </div>
+            <div class="contact-item">
+                <strong>Location</strong>
+                <span>City, Country</span>
+            </div>
+            <div class="contact-item">
+                <strong>Socials</strong>
+                <div class="social-links">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <h1>Professional Portfolio</h1>
+        
+        <section>
+            <h2 class="section-title">About Me</h2>
+            <p>I am a dedicated student currently exploring the world of web development and version control. This portfolio serves as a live document of my progress and technical capabilities.</p>
+        </section>
+
+        <section>
+            <h2 class="section-title">Education</h2>
+            <div class="card">
+                <div class="education-item">
+                    <strong>University/College Name</strong>
+                    <p>Degree/Certification Name | 2024 - 2026</p>
+                </div>
+                <div class="education-item">
+                    <strong>High School Name</strong>
+                    <p>General Studies | 2020 - 2024</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Key Projects</h2>
+            <div class="card">
+                <h3>Class-Works Repo</h3>
+                <p>A repository dedicated to housing academic projects and coding exercises deployed via GitHub Pages.</p>
+                <a href="#" style="color: var(--accent);">View Repository &rarr;</a>
+            </div>
+        </section>
+
+        <footer>
+            <p style="margin-top: 4rem; color: #8b949e; font-size: 0.8rem;">
+                &copy; 2026 LaughterDev | Hosted on GitHub Pages
+            </p>
+        </footer>
+    </main>
+
 </body>
 </html>
