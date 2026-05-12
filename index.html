@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="favicon.png">
-     <title>Professional Profile | LaughterDev</title>
+    <title>Professional Showcase | LaughterDev</title>
     <style>
         :root {
             --bg: #0d1117;
@@ -13,6 +12,13 @@
             --text-bright: #ffffff;
             --accent: #58a6ff;
             --border: #30363d;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         body {
@@ -21,137 +27,193 @@
             color: var(--text-main);
             margin: 0;
             display: grid;
-            grid-template-columns: 300px 1fr;
+            grid-template-columns: 320px 1fr;
             min-height: 100vh;
+            animation: fadeIn 0.8s ease-out;
         }
 
         /* Sidebar Styling */
         .sidebar {
             background-color: var(--card-bg);
             border-right: 1px solid var(--border);
-            padding: 2rem;
+            padding: 3rem 2rem;
             text-align: center;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+
+        .profile-container {
+            position: relative;
+            display: inline-block;
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             border: 3px solid var(--accent);
-            margin-bottom: 1rem;
             object-fit: cover;
+            transition: var(--transition);
+            background: #21262d; /* Placeholder color */
         }
 
-        .contact-info {
-            text-align: left;
-            margin-top: 2rem;
-            font-size: 0.9rem;
+        .profile-img:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 0 20px rgba(88, 166, 255, 0.4);
         }
 
-        .contact-item { margin-bottom: 1rem; }
-        .contact-item strong { color: var(--accent); display: block; }
-
-        /* Main Content Styling */
-        .main-content { padding: 3rem; overflow-y: auto; }
+        /* Main Content */
+        .main-content { padding: 3rem 5rem; }
 
         .section-title {
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 0.5rem;
-            margin-top: 2rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+            margin-top: 3rem;
             color: var(--text-bright);
+            font-size: 1.5rem;
         }
 
+        /* Cards & Hover Effects */
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-top: 1rem;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
 
-        .social-links a {
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Places for Images */
+        .image-placeholder {
+            width: 100%;
+            height: 180px;
+            background: #21262d;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #484f58;
+            font-weight: bold;
+            overflow: hidden;
+        }
+
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .school-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Buttons & Socials */
+        .btn {
             display: inline-block;
-            margin-right: 15px;
-            color: var(--accent);
+            background: var(--accent);
+            color: var(--bg);
+            padding: 10px 20px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
+            margin-top: 1rem;
+            transition: var(--transition);
         }
 
-        .education-item {
-            margin-bottom: 1.5rem;
-            padding-left: 1rem;
-            border-left: 2px solid var(--accent);
+        .btn:hover { opacity: 0.9; transform: scale(1.02); }
+
+        .social-link {
+            color: var(--text-main);
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: var(--transition);
         }
 
-        /* Responsive for Phones */
-        @media (max-width: 768px) {
+        .social-link:hover { color: var(--accent); }
+
+        @media (max-width: 900px) {
             body { grid-template-columns: 1fr; }
-            .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
+            .sidebar { height: auto; position: relative; border-right: none; }
+            .main-content { padding: 2rem; }
+            .school-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <aside class="sidebar">
-        <img src="isaac.jpg" alt="Profile Picture" class="profile-im">
-        <h2>LaughterDev</h2>
-        <p>Software Developer</p>
-        
-        <div class="contact-info">
-            <div class="contact-item">
-                <strong>Email</strong>
-                <span>isaacnizeyimnaizibyose@gmail.com</span>
-            </div>
-            <div class="contact-item">
-                <strong>Location</strong>
-                <span>MUSANZE, Rwanda</span>
-            </div>
-            <div class="contact-item">
-                <strong>Socials</strong>
-                <div class="social-links">
-                    <a href="#">LinkedIn</a>
-                    <a href="#">Twitter</a>
-                    <a href="#">GitHub</a>
-                </div>
-            </div>
+        <div class="profile-container">
+            <img src="me.jpg" alt="Your Name" class="profile-img" onerror="this.src='https://via.placeholder.com/160?text=Upload+Photo'">
         </div>
+        <h1 style="color: var(--text-bright); margin-top: 1.5rem;">[YOUR NAME]</h1>
+        <p style="color: var(--accent);">Aspiring Web Developer</p>
+        
+        <div style="margin-top: 2rem; text-align: left; font-size: 0.9rem;">
+            <p>📧 <strong>Email:</strong><br>[your.email@example.com]</p>
+            <p>📍 <strong>Location:</strong><br>Kigali, Rwanda</p>
+        </div>
+
+        <div style="margin-top: 2rem;">
+            <a href="#" class="social-link">Linkedln</a>
+            <a href="#" class="social-link">X</a>
+            <a href="#" class="social-link">GitHub</a>
+        </div>
+
+        <a href="#" class="btn">Download CV</a>
     </aside>
 
     <main class="main-content">
-        <h1>Professional Portfolio</h1>
-        
         <section>
-            <h2 class="section-title">About Me</h2>
-            <p>I am a dedicated begginer currently exploring the world of web development and version control. This portfolio serves as a live document of my progress and technical capabilities.</p>
+            <h2 class="section-title">Personal Summary</h2>
+            <p>I am a student at <strong>[Your School Name]</strong>, specializing in digital design and web architecture. I focus on creating clean, user-friendly experiences using modern tools like Figma and GitHub.</p>
         </section>
 
         <section>
-            <h2 class="section-title">Education</h2>
-            <div class="card">
-                <div class="education-item">
-                    <strong>University/College Name</strong>
-                    <p>Degree/Certification Name | 2024 - 2026</p>
+            <h2 class="section-title">Education Journey</h2>
+            <div class="school-grid">
+                <div class="card">
+                    <div class="image-placeholder">
+                        <img src="school-logo.jpg" alt="School Logo" onerror="this.parentElement.innerText='School Image Place'">
+                    </div>
+                    <h3>Current School</h3>
+                    <p>Concentration in Computer Science & Art.<br>2024 - Present</p>
                 </div>
-                <div class="education-item">
-                    <strong>High School Name</strong>
-                    <p>General Studies | 2020 - 2024</p>
+                <div class="card">
+                    <div class="image-placeholder">
+                        <img src="old-school.jpg" alt="Prev School" onerror="this.parentElement.innerText='Previous School Image'">
+                    </div>
+                    <h3>Previous School</h3>
+                    <p>Completed High School Diploma.<br>Graduated 2024</p>
                 </div>
             </div>
         </section>
 
         <section>
-            <h2 class="section-title">Key Projects</h2>
+            <h2 class="section-title">Featured Project</h2>
             <div class="card">
-                <h3>Class-Works Repo</h3>
-                <p>A repository dedicated to housing academic projects and coding exercises deployed via GitHub Pages.</p>
-                <a href="#" style="color: var(--accent);">View Repository &rarr;</a>
+                <div class="image-placeholder" style="height: 250px;">
+                    <img src="project-preview.png" alt="Project Preview" onerror="this.parentElement.innerText='Project Screenshot Place'">
+                </div>
+                <h3>Class-Works Repository</h3>
+                <p>A collection of my academic coding projects hosted via GitHub Pages. This project demonstrates my understanding of HTML, CSS, and Git version control.</p>
+                <a href="#" class="btn" style="background: transparent; border: 1px solid var(--accent); color: var(--accent);">View on GitHub</a>
             </div>
         </section>
 
-        <footer>
-            <p style="margin-top: 4rem; color: #8b949e; font-size: 0.8rem;">
-                &copy; 2026 LaughterDev | Hosted on GitHub Pages
-            </p>
+        <footer style="margin-top: 5rem; opacity: 0.5; font-size: 0.8rem;">
+            &copy; 2026 LaughterDev | Built with GitHub Pages
         </footer>
     </main>
 
