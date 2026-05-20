@@ -16,14 +16,14 @@
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        /* Fade-in Animation */
+        /* Fade-in Animation for the whole page */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg);
             color: var(--text-main);
             margin: 0;
@@ -56,12 +56,12 @@
             border: 3px solid var(--accent);
             object-fit: cover;
             transition: var(--transition);
-            background: #21262d; /* Placeholder color */
+            background: #21262d; 
         }
 
         .profile-img:hover {
-            transform: scale(1.05) rotate(2deg);
-            box-shadow: 0 0 20px rgba(88, 166, 255, 0.4);
+            transform: scale(1.08) rotate(3deg);
+            box-shadow: 0 0 25px rgba(88, 166, 255, 0.5);
         }
 
         /* Main Content */
@@ -73,6 +73,7 @@
             margin-top: 3rem;
             color: var(--text-bright);
             font-size: 1.5rem;
+            letter-spacing: 1px;
         }
 
         /* Cards & Hover Effects */
@@ -84,16 +85,15 @@
             margin-top: 1.5rem;
             transition: var(--transition);
             position: relative;
-            overflow: hidden;
         }
 
         .card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px);
             border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
         }
 
-        /* Places for Images */
+        /* Image Areas */
         .image-placeholder {
             width: 100%;
             height: 180px;
@@ -104,7 +104,6 @@
             align-items: center;
             justify-content: center;
             color: #484f58;
-            font-weight: bold;
             overflow: hidden;
         }
 
@@ -117,36 +116,43 @@
         .school-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 25px;
         }
 
-        /* Buttons & Socials */
+        /* Buttons */
         .btn {
             display: inline-block;
             background: var(--accent);
-            color: var(--bg);
-            padding: 10px 20px;
-            border-radius: 6px;
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
             margin-top: 1rem;
             transition: var(--transition);
+            cursor: pointer;
         }
 
-        .btn:hover { opacity: 0.9; transform: scale(1.02); }
+        .btn:hover { 
+            opacity: 0.9; 
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(88, 166, 255, 0.3);
+        }
 
         .social-link {
             color: var(--text-main);
             margin: 0 10px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            text-decoration: none;
             transition: var(--transition);
         }
 
         .social-link:hover { color: var(--accent); }
 
+        /* Responsive Design for Mobile */
         @media (max-width: 900px) {
             body { grid-template-columns: 1fr; }
-            .sidebar { height: auto; position: relative; border-right: none; }
+            .sidebar { height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
             .main-content { padding: 2rem; }
             .school-grid { grid-template-columns: 1fr; }
         }
@@ -156,20 +162,20 @@
 
     <aside class="sidebar">
         <div class="profile-container">
-            <img src="profile.jpg.jpg" alt="Your Name" class="profile-img" onerror="this.src='https://via.placeholder.com/160?text=Upload+Photo'">
+            <img src="profile.jpg" alt="Isaac" class="profile-img" onerror="this.src='https://via.placeholder.com/160?text=Upload+profile.jpg'">
         </div>
-        <h1 style="color: var(--text-bright); margin-top: 1.5rem;">N.IZIBYOSE Isaac</h1>
-        <p style="color: var(--accent);">Begginer Web Developer</p>
+        <h1 style="color: var(--text-bright); margin-top: 1.5rem; font-size: 1.8rem;">N.IZIBYOSE Isaac</h1>
+        <p style="color: var(--accent); font-weight: 500;">Beginner Web Developer</p>
         
-        <div style="margin-top: 2rem; text-align: left; font-size: 0.9rem;">
+        <div style="margin-top: 2rem; text-align: left; font-size: 0.95rem; line-height: 1.6;">
             <p>📧 <strong>Email:</strong><br>isaacnizeyimnaizibyose@gmail.com</p>
             <p>📍 <strong>Location:</strong><br>Kigali, Rwanda</p>
         </div>
 
         <div style="margin-top: 2rem;">
-            <a href="#" class="social-link">Linkedln</a>
+            <a href="#" class="social-link">LinkedIn</a>
             <a href="#" class="social-link">X</a>
-            <a href="#" class="social-link">GitHub</a>
+            <a href="https://github.com/laughterdev111" class="social-link">GitHub</a>
         </div>
 
         <a href="#" class="btn">Download CV</a>
@@ -178,7 +184,7 @@
     <main class="main-content">
         <section>
             <h2 class="section-title">Personal Summary</h2>
-            <p>I am a student at <strong>COLLEGE APPEC REMERA-RUKOMA</strong>, specializing in Software development. I focus on creating clean, user-friendly experiences using modern tools like Figma, VS Code and GitHub.</p>
+            <p style="line-height: 1.8; font-size: 1.1rem;">I am a student at <strong>COLLEGE APPEC REMERA-RUKOMA</strong>, specializing in Software Development. I focus on creating clean, user-friendly experiences using modern tools like Figma, VS Code, and GitHub.</p>
         </section>
 
         <section>
@@ -186,17 +192,17 @@
             <div class="school-grid">
                 <div class="card">
                     <div class="image-placeholder">
-                        <img src="appec.png" alt="School Logo" onerror="this.parentElement.innerText='School Image Place'">
+                        <img src="appec.png" alt="Appec Logo" onerror="this.parentElement.innerText='APPEC Logo (appec.png)'">
                     </div>
                     <h3>Current School</h3>
                     <p>Concentration in Software Development.<br>2026 - Present</p>
                 </div>
                 <div class="card">
                     <div class="image-placeholder">
-                        <img src="kampanga.png" alt="Prev School" onerror="this.parentElement.innerText='Previous School Image'">
+                        <img src="kampanga.png" alt="Kampanga Logo" onerror="this.parentElement.innerText='Kampanga Logo (kampanga.png)'">
                     </div>
                     <h3>Previous School</h3>
-                    <p>Completed Ordinary Level At Gs Kampanga.<br>Graduated 2025(August)</p>
+                    <p>Completed Ordinary Level at GS Kampanga.<br>Graduated August 2025</p>
                 </div>
             </div>
         </section>
@@ -205,16 +211,17 @@
             <h2 class="section-title">Featured Project</h2>
             <div class="card">
                 <div class="image-placeholder" style="height: 250px;">
-                    <img src="project screenshot.png" alt="Project Preview" onerror="this.parentElement.innerText='Project Screenshot Place'">
+                    <img src="project screenshot.png" alt="Project Preview" onerror="this.parentElement.innerText='Project Screenshot (project screenshot.png)'">
                 </div>
                 <h3>Class-Works Repository</h3>
-                <p>A collection of my academic coding projects hosted via GitHub Pages. This project demonstrates my Skills of HTML, CSS, and Git version control.</p>
-                <a href="laughterdev111.github.io/class-works/XYZ-COMPANY" class="btn" style="background: transparent; border: 1px solid var(--accent); color: var(--accent);">View on GitHub</a>
+                <p>A collection of my academic coding projects hosted via GitHub Pages. This project demonstrates my skills in HTML, CSS, and Git version control.</p>
+                
+                <a href="https://laughterdev111.github.io/Class-works/XYZ-COMPANY" class="btn" style="background: transparent; border: 2px solid var(--accent); color: var(--accent);">View Live Site</a>
             </div>
         </section>
 
-        <footer style="margin-top: 5rem; opacity: 0.5; font-size: 0.8rem;">
-            &copy; 2026 LaughterDev | Built with GitHub Pages
+        <footer style="margin-top: 5rem; padding-bottom: 2rem; opacity: 0.5; font-size: 0.85rem; text-align: center;">
+            &copy; 2026 LaughterDev | Built with Passion & GitHub Pages
         </footer>
     </main>
 
